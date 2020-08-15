@@ -2,10 +2,11 @@
 
 let getFactors (x: int64) =
     seq {
+        // All integers are divisible by 1.
         yield 1L
 
         // We can find the factors beyond sqrt(N)
-        // simply by dividing N by each of the factors between 2L and sqrt(N).
+        // simply by dividing N by each of the factors between 2 and sqrt(N).
         // Therefore we only need to compute the factors until sqrt(N)
         // which saves us a lot of processing.
         let limit = Math.Sqrt (float x) |> int64
@@ -15,6 +16,7 @@ let getFactors (x: int64) =
                 let m = x / n
                 if n <> m then yield m
 
+        // All integers are divisible by themselves.
         yield x
     }
 
