@@ -1,13 +1,11 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open BenchmarkDotNet.Attributes
+﻿open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
 
 [<MemoryDiagnoser>]
 type Solutions () =
 
     [<Benchmark>]
-    member this.solution1 () =
+    member this.Solution1 () =
 
         // Get the multiples of three and five under 1000.
         let multipleOfThreeAndFive = seq { for x in 1..999 do if (x % 5) = 0 || (x % 3) = 0 then x }
@@ -18,9 +16,9 @@ type Solutions () =
         result
 
     [<Benchmark>]
-    member this.solution2 () =
+    member this.Solution2 () =
 
-        // This shoudl be marginally more efficient, sd iy only enumerates
+        // This should be marginally more efficient, as it only enumerates
         // the numbers we'll ultimately keep.
         let multipleOfthree = seq { for x in 3..3..999 -> x }
         let mulitpleOfFive = seq { for x in 5..5..999 do if (x % 15) <> 0 then x }

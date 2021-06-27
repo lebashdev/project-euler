@@ -1,6 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System
+﻿open System
 
 // Represents the Fibonacci sequence.
 let fibonacci = Seq.unfold (fun (a, b) -> Some (a, (b, a + b))) (1, 2)
